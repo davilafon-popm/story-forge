@@ -6,6 +6,7 @@ All notable changes are listed here. Versioning policy: see [CONTRIBUTING.md](CO
 
 ### Changed
 
+- Install instructions: one-step `/plugin install story-forge --marketplace davilafon-popm/story-forge` (Claude Code 2.1.275+), two-step fallback kept; removed the private-repository note. Install from the public repository verified with the Claude Code CLI (marketplace and plugin manifests validate; 10 skills and 7 agents load).
 - Rules are cited by name instead of numeric codes (R1.3, H1). Knowledge-base tables have a "Name" column; skills, templates, examples and the lint check use names.
 
 ### Added

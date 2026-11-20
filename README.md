@@ -64,11 +64,15 @@ Each story also comes with a **decisions table** (what was decided and from whic
 **Claude Code**
 
 ```
+/plugin install story-forge --marketplace davilafon-popm/story-forge
+```
+
+That single line works on Claude Code 2.1.275 or later. On older versions, use two steps:
+
+```
 /plugin marketplace add davilafon-popm/story-forge
 /plugin install story-forge@story-forge
 ```
-
-While the repository is private, adding the marketplace needs a GitHub account with access to it.
 
 **Claude (Cowork / desktop)**: zip the folder `plugins/story-forge` (its contents at the zip root), rename it to `story-forge.plugin` and add it as a plugin. Your organization may also distribute it through its plugin catalog.
 
