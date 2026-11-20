@@ -1,0 +1,38 @@
+name: validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20"
+      - run: pip install -r requirements-dev.txt
+      - name: Plugin structure
+        run: python tools/validate_plugin.py
+      - name: Paths and links
+        run: python tools/check_references.py
+      - name: Sensitive data scan
+        run: python tools/sanitize_check.py
+      - name: Python lint
+        run: ruff check .
+      - name: JavaScript syntax
+        run: node --check plugins/story-forge/skills/sf-design-reader/scripts/browser_export_helpers.js
+      - name: Tests
+        run: pytest -q tests

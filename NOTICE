@@ -1,0 +1,8 @@
+story-forge
+Copyright 2026 David Dávila
+
+This product includes the story-forge method (decision policy, story template,
+lint checklist, knowledge-base structure and workflow) created by David Dávila.
+
+The design-file decoder used by scripts/fig_local.py is provided by the
+fig2sketch project (MIT License), installed separately by the user.

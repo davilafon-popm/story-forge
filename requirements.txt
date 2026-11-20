@@ -1,0 +1,3 @@
+# Runtime dependencies of the optional design scripts (skills/sf-design-reader/scripts)
+fig2sketch>=0.8.0     # local .fig reader (fig_local.py); unofficial format
+pillow>=13.0.0        # image validation and contact sheet (decode_captures.py)

@@ -1,0 +1,115 @@
+# story-forge team profile
+# ---------------------------------------------------------------------------
+# Copy this file to your working folder as `story-forge.profile.yaml` (or run
+# the `sf-setup` skill, which asks you the questions and writes it for you).
+#
+# Never commit a real profile to a public repository: it contains your sites,
+# project keys and page ids. `.gitignore` already excludes *.profile.yaml.
+#
+# Every "strategies" list is ORDERED: the skills try the first option and fall
+# back to the next one when it is unavailable (no connector, no quota, no
+# permission). Remove the options you do not want to be used at all.
+# ---------------------------------------------------------------------------
+
+team:
+  name: "My team"                 # free text, shown in summaries
+  product: "My product"           # appears in the story header "Product / Market"
+  owner_role: "Product Owner"
+
+story:
+  language: es                    # output language of the stories: es, en, pt, fr, de, it...
+  template: detailed              # detailed | compact  (see templates/story.<lang>.md)
+  criteria_style: gherkin         # gherkin (Given/When/Then in the story language) | rules-list
+  criteria_numbering: plain       # plain = 1, 2, 3 (no "AC" prefix) | prefixed = AC1, AC2
+  markdown_headings: false        # false = bold labels only (safer for most trackers)
+  max_blocking_questions: 5
+  test_cases: suggest             # suggest | off  (proposed QA cases, never written to the tracker)
+  ai_mentions_allowed: false      # false = nothing written to tools mentions AI assistance
+
+# One entry per market, country, brand or business unit that has its OWN sources.
+# If you have only one, keep a single entry. Each market reads and writes only
+# its own knowledge base.
+markets:
+  - id: main
+    name: "Main market"
+    detect_by:                    # how a story is assigned to this market
+      tracker_projects: [ABC]
+      wiki_spaces: [SPEC]
+      design_files: ["Product - v2"]
+
+    tracker:
+      tool: jira                  # jira | azure-devops | linear | github-issues | gitlab | youtrack | other
+      site: "your-site.atlassian.net"
+      connector: "Atlassian"      # name of the connector/MCP in your Claude workspace
+      projects:                   # module -> project key
+        default: ABC
+      story_type: Story
+      epic_type: Epic
+
+    wiki:
+      tool: confluence            # confluence | notion | sharepoint | google-docs | repo | other
+      site: "your-site.atlassian.net"
+      specs_location: "SPEC"      # space, database, folder or path where requirements live
+      services_inventory: ""      # page/path listing APIs/services by name (optional)
+
+    knowledge_base:
+      storage: wiki               # wiki | repo  (repo = markdown files in a folder or git repo)
+      writing_rules: ""           # page id/URL or path, e.g. knowledge-base/es/writing-rules.md
+      standard_behaviors: ""
+      flow_source_map: ""         # where each flow's requirement and design live
+      market_profile: ""          # optional page with the market data below, if kept in the wiki
+
+    design:
+      tool: figma                 # figma | penpot | sketch | adobe-xd | other
+      file: ""                    # file key / URL of the ORIGINAL file (not a local copy)
+      read_text:                  # ordered strategies to read texts, controls, notes
+        - local-file              # .fig saved locally; unlimited, unofficial format
+        - official-connector      # design tool MCP/connector (uses quota)
+        - rest-api                # REST API with cache (uses quota, needs token in env)
+        - manual                  # the PO pastes texts or describes the screens
+      images:                     # ordered strategies to get one PNG per screen
+        - official-connector
+        - rest-api
+        - browser-export          # export inside the app browser with the user's session
+        - designer-export         # a designer exports PNGs to a folder you point to
+        - none                    # criteria reference the design node link instead
+      images_folder: "~/story-forge/images/{ticket}/"
+
+    data:                         # market facts the stories must use; never mix markets
+      support_phone: ""
+      id_document: ""
+      currencies: []
+      geo_catalogs: ""            # e.g. "State -> City"
+      other: {}
+
+governance:                       # see GOVERNANCE.md
+  kb_changes: po                  # po = the Product Owner approves changes | organization = needs the approver below
+  approver: ""                    # role or group that approves when kb_changes is organization
+
+publishing:
+  write_to_tracker: on-request    # on-request = only when the user names the ticket | never
+  images_inline:                  # ordered strategies to embed images under each criterion
+    - api-token                   # tracker REST API with a token stored in env (never in chat)
+    - browser-session             # app browser with the user's session; user may pick files
+    - browser-extension           # Claude in Chrome file upload
+    - wiki-page                   # images on a wiki page, criteria link to it
+    - manual                      # PO pastes images following a checklist
+
+research:
+  web:                            # ordered strategies for external research
+    - native                      # built-in web search (needs admin enablement)
+    - search-connector            # any web-search MCP the workspace has
+    - browser                     # app browser with a public search page
+    - off
+  preferred_sources: []           # e.g. regulator sites, design system docs
+
+agents:
+  enabled: true                   # use subagents when the Agent tool exists
+  routing:                        # model per role: haiku | sonnet | opus | inherit
+    sources_reader: haiku
+    screen_exporter: haiku
+    story_writer: sonnet
+    story_reviewer: opus
+    tracker_publisher: haiku
+    bug_classifier: haiku
+    web_researcher: sonnet

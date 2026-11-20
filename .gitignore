@@ -1,0 +1,20 @@
+# Real team profiles never go to the repository
+*.profile.yaml
+!profiles/examples/*.profile.yaml
+.sanitize-denylist
+
+# Generated design data and images
+design-summaries/
+images/
+imagenes/
+*.fig
+_contact-sheet.png
+_hoja-contactos.png
+.cache_*.json.gz
+figma-out/
+
+# Python / OS
+__pycache__/
+*.pyc
+.DS_Store
+.env

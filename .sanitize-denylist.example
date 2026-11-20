@@ -1,0 +1,5 @@
+# One term per line (case-insensitive). Copy to .sanitize-denylist (git-ignored).
+# Example:
+# my-company
+# my-client
+# client-site.atlassian.net

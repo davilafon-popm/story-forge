@@ -1,0 +1,29 @@
+# Ejemplo FICTICIO: banco con dos países, Jira + Confluence + Figma, historias en español.
+team: { name: "Banca Digital Andina", product: "App Andina", owner_role: "Product Owner" }
+story: { language: es, template: detailed, criteria_style: gherkin, criteria_numbering: plain, markdown_headings: false, max_blocking_questions: 5, test_cases: suggest, ai_mentions_allowed: false }
+markets:
+  - id: pe
+    name: "Perú"
+    detect_by: { tracker_projects: [ANPE], wiki_spaces: [ESPPE], design_files: ["App Andina PE"] }
+    tracker: { tool: jira, site: "andina-pe.example.net", connector: "Atlassian PE", projects: { default: ANPE }, story_type: Historia, epic_type: Épica }
+    wiki: { tool: confluence, site: "andina-pe.example.net", specs_location: "ESPPE", services_inventory: "Inventario de servicios" }
+    knowledge_base: { storage: wiki, writing_rules: "Reglas de redacción – PE", standard_behaviors: "Comportamientos estándar – PE", flow_source_map: "Mapa flujo → fuentes – PE" }
+    design:
+      tool: figma
+      file: "https://www.figma.com/design/EXAMPLEKEY1/App-Andina-PE"
+      read_text: [local-file, official-connector, manual]
+      images: [browser-export, designer-export, none]
+      images_folder: "~/story-forge/imagenes/{ticket}/"
+    data: { support_phone: "(+51) 000-0000", id_document: "DNI", currencies: [PEN, USD], geo_catalogs: "Departamento → Provincia → Distrito" }
+  - id: ec
+    name: "Ecuador"
+    detect_by: { tracker_projects: [ANEC], wiki_spaces: [ESPEC] }
+    tracker: { tool: jira, site: "andina-ec.example.net", connector: "Atlassian EC", projects: { default: ANEC } }
+    wiki: { tool: confluence, site: "andina-pe.example.net", specs_location: "ESPEC" }
+    knowledge_base: { storage: repo, writing_rules: "kb/ec/reglas-de-redaccion.md", standard_behaviors: "kb/ec/comportamientos-estandar.md", flow_source_map: "kb/ec/mapa-flujo-fuentes.md" }
+    design: { tool: figma, file: "https://www.figma.com/design/EXAMPLEKEY2/App-Andina-EC", read_text: [official-connector, manual], images: [official-connector, designer-export], images_folder: "~/story-forge/imagenes/{ticket}/" }
+    data: { support_phone: "(+593) 0-000-0000", id_document: "Cédula", currencies: [USD], geo_catalogs: "Provincia → Cantón" }
+governance: { kb_changes: organization, approver: "Comité de estándares digitales" }
+publishing: { write_to_tracker: on-request, images_inline: [api-token, browser-session, manual] }
+research: { web: [native, browser], preferred_sources: ["sitio del regulador bancario de cada país"] }
+agents: { enabled: true, routing: { sources_reader: haiku, screen_exporter: haiku, story_writer: sonnet, story_reviewer: opus, tracker_publisher: haiku, bug_classifier: haiku, web_researcher: sonnet } }

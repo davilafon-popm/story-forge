@@ -1,0 +1,16 @@
+# FICTIONAL example: retail app, Azure DevOps + Notion + Penpot, stories in English, KB in git.
+team: { name: "Northwind Commerce", product: "Northwind App", owner_role: "Product Owner" }
+story: { language: en, template: detailed, criteria_style: gherkin, criteria_numbering: prefixed, markdown_headings: true, max_blocking_questions: 3, test_cases: suggest, ai_mentions_allowed: true }
+markets:
+  - id: us
+    name: "United States"
+    detect_by: { tracker_projects: ["Northwind/Checkout"] }
+    tracker: { tool: azure-devops, site: "dev.azure.com/northwind-example", connector: "Azure DevOps", projects: { default: "Northwind/Checkout" }, story_type: "User Story", epic_type: Epic }
+    wiki: { tool: notion, specs_location: "Product Specs database" }
+    knowledge_base: { storage: repo, writing_rules: "kb/writing-rules.md", standard_behaviors: "kb/standard-behaviors.md", flow_source_map: "kb/flow-source-map.md" }
+    design: { tool: penpot, file: "https://design.example.com/#/workspace/EXAMPLE", read_text: [official-connector, manual], images: [designer-export, none], images_folder: "~/story-forge/images/{ticket}/" }
+    data: { support_phone: "1-800-000-0000", currencies: [USD], geo_catalogs: "State -> City" }
+governance: { kb_changes: po }
+publishing: { write_to_tracker: on-request, images_inline: [api-token, wiki-page, manual] }
+research: { web: [native, search-connector, off] }
+agents: { enabled: true, routing: { sources_reader: haiku, screen_exporter: haiku, story_writer: sonnet, story_reviewer: opus, tracker_publisher: haiku, bug_classifier: haiku, web_researcher: sonnet } }

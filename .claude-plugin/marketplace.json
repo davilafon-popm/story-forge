@@ -1,0 +1,15 @@
+{
+  "name": "story-forge",
+  "owner": { "name": "David Dávila" },
+  "metadata": {
+    "description": "Tool-agnostic, multi-language user story workflow for product owners."
+  },
+  "plugins": [
+    {
+      "name": "story-forge",
+      "source": "./plugins/story-forge",
+      "description": "Write detailed user stories from requirements and designs, with scope precheck, review, publishing and sprint retros. Works with Jira, Azure DevOps, Linear, Confluence, Notion, Figma, Penpot and similar tools.",
+      "version": "0.1.0"
+    }
+  ]
+}
