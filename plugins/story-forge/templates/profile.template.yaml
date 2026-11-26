@@ -89,9 +89,9 @@ governance:                       # see GOVERNANCE.md
 publishing:
   write_to_tracker: on-request    # on-request = only when the user names the ticket | never
   images_inline:                  # ordered strategies to embed images under each criterion
-    - api-token                   # tracker REST API with a token stored in env (never in chat)
-    - browser-session             # app browser with the user's session; user may pick files
-    - browser-extension           # Claude in Chrome file upload
+    - browser-extension           # Claude in Chrome loads the files into the page: no file picking (recommended)
+    - api-token                   # tracker REST API with a token stored in env (never in chat); needs network to the tracker
+    - browser-session             # app browser with the user's session; the user picks the files every time
     - wiki-page                   # images on a wiki page, criteria link to it
     - manual                      # PO pastes images following a checklist
 

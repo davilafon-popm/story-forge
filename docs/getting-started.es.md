@@ -15,5 +15,6 @@ Usa `examples/es-scheduled-transfer/`: dale el requerimiento y el resumen de dis
 ## Consejos
 
 - Deja el modelo más capaz en la conversación principal; los subagentes usan modelos más económicos donde la calidad es igual.
+- Para publicar las imágenes sin elegir archivos, conecta Claude in Chrome e inicia sesión en tu gestor de tickets en Chrome; deja `browser-extension` primero en `publishing.images_inline`. Detalle: [image-upload.es.md](image-upload.es.md).
 - Si la cuota de diseño es escasa, pon `local-file` primero para textos y `browser-export` o `designer-export` primero para imágenes.
 - Lee la línea de consumo al final de cada ejecución y ajusta `agents.routing`.

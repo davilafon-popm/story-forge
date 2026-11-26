@@ -2,17 +2,19 @@
 
 All notable changes are listed here. Versioning policy: see [CONTRIBUTING.md](CONTRIBUTING.md#versioning).
 
-## Unreleased
-
-### Changed
-
-- Install instructions: one-step `/plugin install story-forge --marketplace davilafon-popm/story-forge` (Claude Code 2.1.275+), two-step fallback kept; removed the private-repository note. Install from the public repository verified with the Claude Code CLI (marketplace and plugin manifests validate; 10 skills and 7 agents load).
-- Rules are cited by name instead of numeric codes (R1.3, H1). Knowledge-base tables have a "Name" column; skills, templates, examples and the lint check use names.
+## 0.2.0 — 2026-11-26
 
 ### Added
 
+- **Images into the ticket without picking files.** New first publishing strategy `browser-extension`: Claude in Chrome loads the story's PNGs into the ticket page with its `file_upload` tool, checks name, size and SHA-256 against the originals, then uploads and embeds them from the same page. Verified on Jira Cloud (2026-11-25). Explained in [docs/image-upload.md](docs/image-upload.md) ([español](docs/image-upload.es.md)).
 - GOVERNANCE.md and GOVERNANCE.es.md: the method is maintained upstream by its author; each Product Owner can change their own implementation unless their organization does not allow it.
 - Profile section `governance` (`kb_changes: po | organization`, `approver`), asked by sf-setup and applied by sf-retro.
+
+### Changed
+
+- Default order of `publishing.images_inline`: `browser-extension`, `api-token`, `browser-session`, `wiki-page`, `manual`. `browser-session` (the user picks files) is now a fallback. sf-publish, the tracker-publisher agent, the Jira tracker notes, the options matrix (reviewed 2026-11-26), the tool adapters and the getting-started guides were updated.
+- Install instructions: one-step `/plugin install story-forge --marketplace davilafon-popm/story-forge` (Claude Code 2.1.275+), two-step fallback kept; removed the private-repository note. Install from the public repository verified with the Claude Code CLI (marketplace and plugin manifests validate; 10 skills and 7 agents load).
+- Rules are cited by name instead of numeric codes (R1.3, H1). Knowledge-base tables have a "Name" column; skills, templates, examples and the lint check use names.
 
 ## 0.1.0 — 2026-11-20
 

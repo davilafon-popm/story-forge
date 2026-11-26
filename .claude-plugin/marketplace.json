@@ -9,7 +9,7 @@
       "name": "story-forge",
       "source": "./plugins/story-forge",
       "description": "Write detailed user stories from requirements and designs, with scope precheck, review, publishing and sprint retros. Works with Jira, Azure DevOps, Linear, Confluence, Notion, Figma, Penpot and similar tools.",
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   ]
 }

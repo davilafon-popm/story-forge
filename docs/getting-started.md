@@ -15,5 +15,6 @@ Use `examples/es-scheduled-transfer/`: give the requirement and design summary t
 ## Tips
 
 - Keep the most capable model for the main conversation; subagents use cheaper models where quality is equal.
+- To publish images without picking files, connect Claude in Chrome and sign in to your tracker in Chrome; keep `browser-extension` first in `publishing.images_inline`. Details: [image-upload.md](image-upload.md).
 - If design quota is scarce, put `local-file` first for texts and `browser-export` or `designer-export` first for images.
 - Read the usage log line at the end of each run and adjust `agents.routing`.

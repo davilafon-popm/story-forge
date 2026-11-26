@@ -2,9 +2,13 @@
 
 **Write near-final user stories from requirements and designs — in any language, with any tracker, wiki and design tool.**
 
-[Español](README.es.md) · License: [Apache 2.0](LICENSE) · Status: early release (0.1.0)
+[Español](README.es.md) · License: [Apache 2.0](LICENSE) · Status: early release (0.2.0)
 
 story-forge is a method for product owners, packaged as a Claude plugin. It turns a ticket, its requirement page and its design into a detailed user story with numbered acceptance criteria, named services, one design image per criterion and your team's standards applied. Then it reviews the story, publishes it into the ticket you name, and learns from each sprint's bugs.
+
+## What's new in 0.2.0
+
+**Design images go into the ticket without picking files.** With Claude in Chrome connected, story-forge loads each story's images into the ticket page by itself, checks them byte by byte and embeds each one under its criterion. Before, the Product Owner often had to select the PNGs in a file picker for every story. Why it happened and how it works: [docs/image-upload.md](docs/image-upload.md). Full list: [CHANGELOG.md](CHANGELOG.md).
 
 ## Why
 
@@ -86,7 +90,7 @@ Then say "set up story-forge". The `sf-setup` skill asks a few questions and wri
 plugins/story-forge/        the plugin: skills, agents, templates, starter knowledge base, reference
 profiles/examples/          fictional team profiles
 examples/                   fictional inputs + expected stories (evaluation cases)
-docs/                       architecture, getting started, privacy
+docs/                       architecture, getting started, image upload, privacy
 tests/ · tools/             automated tests and repository checks
 ```
 

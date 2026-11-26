@@ -24,6 +24,6 @@ markets:
     design: { tool: figma, file: "https://www.figma.com/design/EXAMPLEKEY2/App-Andina-EC", read_text: [official-connector, manual], images: [official-connector, designer-export], images_folder: "~/story-forge/imagenes/{ticket}/" }
     data: { support_phone: "(+593) 0-000-0000", id_document: "Cédula", currencies: [USD], geo_catalogs: "Provincia → Cantón" }
 governance: { kb_changes: organization, approver: "Comité de estándares digitales" }
-publishing: { write_to_tracker: on-request, images_inline: [api-token, browser-session, manual] }
+publishing: { write_to_tracker: on-request, images_inline: [browser-extension, api-token, browser-session, manual] }
 research: { web: [native, browser], preferred_sources: ["sitio del regulador bancario de cada país"] }
 agents: { enabled: true, routing: { sources_reader: haiku, screen_exporter: haiku, story_writer: sonnet, story_reviewer: opus, tracker_publisher: haiku, bug_classifier: haiku, web_researcher: sonnet } }

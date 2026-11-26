@@ -1,6 +1,6 @@
 # Options matrix: alternatives for every fragile step
 
-**Last reviewed:** 2026-11-20. Vendors change quotas, permissions and interfaces often: check the sources below before relying on a limit, and send a pull request when something changed.
+**Last reviewed:** 2026-11-26. Vendors change quotas, permissions and interfaces often: check the sources below before relying on a limit, and send a pull request when something changed.
 
 Every step that depends on quotas, permissions, a vendor's UI or an unofficial format has at least two alternatives. Teams choose and order them in their profile; skills fall back automatically to the next option.
 
@@ -29,9 +29,9 @@ Legend — **Robustness**: how likely it keeps working over time. **Cost**: quot
 
 | Option | Robustness | Cost | Needs | Breaks when | Choose it if |
 |---|---|---|---|---|---|
-| `api-token` | High | None | Token with write scope in env | Token expires or policy forbids tokens | You can create a personal token |
-| `browser-session` | Medium | User clicks | App browser, signed in; user selects files | Same-origin API blocked; UI changes | No tokens allowed |
-| `browser-extension` | Medium | None | Claude in Chrome connected | Extension disconnected | You use Chrome and want zero clicks |
+| `browser-extension` | Medium–high | None | Claude in Chrome connected to the same organization; tracker session in Chrome; images in the session workspace | Extension disconnected or signed out of the tracker | Default: zero clicks, no tokens, no network allowlist. Verified on Jira Cloud (2026-11-25) |
+| `api-token` | High | None | Token with write scope in env; network allowlist reaching the tracker | Token expires, policy forbids tokens, or the network blocks the tracker | You can create a personal token and Claude's network reaches the tracker |
+| `browser-session` | Medium | User clicks every story | App browser, signed in; user selects files | Same-origin API blocked; UI changes | Fallback when the extension is not connected |
 | `wiki-page` | High | Two places to sync | Wiki write access | Never | Tracker blocks attachments |
 | `manual` | Very high | User time | — | Never | Last resort |
 

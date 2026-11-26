@@ -1,6 +1,6 @@
 {
   "name": "story-forge",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tool-agnostic, multi-language workflow to write detailed user stories from requirements and designs: scope precheck, source gathering, design screenshots, drafting, review, publishing to the tracker and sprint retros, with optional subagents and per-task model routing.",
   "author": { "name": "David Dávila" },
   "license": "Apache-2.0",

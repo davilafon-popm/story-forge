@@ -2,9 +2,13 @@
 
 **Historias de usuario casi finales a partir de requerimientos y diseños — en cualquier idioma y con cualquier gestor de tickets, wiki y herramienta de diseño.**
 
-[English](README.md) · Licencia: [Apache 2.0](LICENSE) · Estado: versión inicial (0.1.0)
+[English](README.md) · Licencia: [Apache 2.0](LICENSE) · Estado: versión inicial (0.2.0)
 
 story-forge es un método para product owners, empaquetado como plugin de Claude. Convierte un ticket, su requerimiento y su diseño en una historia detallada con criterios de aceptación numerados, servicios nombrados, una imagen del diseño bajo cada criterio y los estándares de tu equipo aplicados. Después la revisa, la publica en el ticket que indiques y aprende de los bugs de cada sprint.
+
+## Novedades de 0.2.0
+
+**Las imágenes del diseño llegan al ticket sin elegir archivos.** Con Claude in Chrome conectado, story-forge carga por sí mismo las imágenes de cada historia en la página del ticket, las verifica byte a byte e inserta cada una debajo de su criterio. Antes, el Product Owner muchas veces tenía que seleccionar las PNG en un selector de archivos en cada historia. Por qué pasaba y cómo funciona: [docs/image-upload.es.md](docs/image-upload.es.md). Lista completa: [CHANGELOG.md](CHANGELOG.md).
 
 ## Por qué
 

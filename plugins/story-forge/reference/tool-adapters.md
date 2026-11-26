@@ -9,7 +9,7 @@ How each operation the skills need maps to each tool. **Used** means the mapping
 | Read issue with parent, links, subtasks | Atlassian connector `getJiraIssue` | Work item get with relations | Issue query with parent and children | Issue get; sub-issues |
 | Search | JQL search | WIQL query | Issue filter | Search issues |
 | Update description | Edit issue / REST v2 wiki markup or v3 ADF | Update work item `System.Description` (HTML) | Update issue description (markdown) | Update issue body (markdown) |
-| Attach image inline | REST attachments + `!file.png!` in wiki markup | Attachments API + `<img>` in HTML | File upload + markdown image | Upload via UI/API + markdown image |
+| Attach image inline | REST attachments + `!file.png!` in wiki markup; from the page with Claude in Chrome `file_upload` (Verified 2026-11-25) | Attachments API + `<img>` in HTML | File upload + markdown image | Upload via UI/API + markdown image |
 | Epic / parent | Epic issue type; `parent` field | Epic/Feature work item; parent link | Project or parent issue | Milestone or parent issue |
 
 ## Wikis and knowledge bases

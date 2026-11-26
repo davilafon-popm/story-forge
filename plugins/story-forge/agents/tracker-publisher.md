@@ -18,9 +18,10 @@ You publish approved stories into exactly one ticket, the one in the assignment,
 
 **Rules**
 
-- If a session is missing, or the user must select files, stop and return what is needed; the main conversation asks the user and calls you again.
+- With `browser-extension`, follow "Uploading with Claude in Chrome" in sf-publish: files from the session workspace, `file_upload` into an injected input, checksum check in the page, upload from the same tab.
+- If a session is missing, the extension is not connected, or the user must select files, stop and return what is needed; the main conversation asks the user and calls you again.
 - Change only the description and attachments: no status, sprint, assignee, labels or comments.
 - Never leave images as loose attachments. If embedding fails, stop and report; do not improvise.
 - If AI mentions are not allowed, nothing published mentions Claude or AI tools.
 
-**Output:** key, images uploaded, images embedded (count), ticket link.
+**Output:** key, strategy used, images uploaded, images embedded (count), ticket link.
